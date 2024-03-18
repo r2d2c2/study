@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    url: jdbc:h2:tcp://localhost/~/datajpa
+    username: sa
+    password: datajpa
+    driver-class-name: org.h2.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        format_sql: true
+  data:
+    web:
+      pageable:
+        default-page-size: 10
+        max-page-size: 20000 #최대값 변경
+        #one-indexed-parameters: true #페이지를 1부터 시작(0과 1이 같다)
+        #그러나 페이지 정보가 0부터 시작하는 걸로 나와서 권장 하지 안는다
+logging:
+  level:
+    org.hibernate.SQL: debug
